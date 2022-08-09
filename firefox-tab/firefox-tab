@@ -1,0 +1,16 @@
+#nav-bar {
+  height: 1px;
+  min-height: 1px !important;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+  z-index: 100;
+  height: auto;
+  overflow: inherit;
+
+  opacity: 1;
+}
