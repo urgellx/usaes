@@ -8,3 +8,9 @@ Hides almost all of the top navigator-toolbox
 leaving the tab that you're on visible. Of 
 course, you can still see everything when you
 hover over it.
+
+### A few very very small scripts
+One to shut down and reboot
+One to mount and unmount Luks encrypted usb keys
+
+## Have a good day, internet person.
