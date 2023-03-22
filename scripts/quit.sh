@@ -1,8 +1,11 @@
 #!/bin/sh
-
+# A small rofi / dmenu script
+# Replace awesome with your WM
     
-case "$(echo -e "Shutdown\nRestart" | dmenu -i -p \
-	"Status:" -l 2)" in
-        Éteindre) exec poweroff;;
-        Redémarrer) exec reboot;;
+case "$(echo -e "Éteindre\nRedémarrer\nDéconnecter" | rofi -dmenu\
+	-p 'Quitter' -l 10 \
+	"Status:" )" in
+        Éteindre) exec systemctl poweroff;;
+        Redémarrer) exec systemctl reboot;;
+	Logout) exec pkill awesome;;
 esac

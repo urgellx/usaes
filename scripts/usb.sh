@@ -4,7 +4,7 @@
 
 list="Fermer\nOuvrir"
 
-choose=$(echo -e "$list" | dmenu -i)
+choose=$(echo -e "$list" | rofi -dmenu -p 'Gérer la clé usb')
 
 case "$choose" in
 	"Fermer")
