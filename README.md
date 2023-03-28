@@ -4,8 +4,8 @@
 
 
 ### A few very very small scripts
-One to shut down and reboot.
-One to mount and unmount Luks encrypted usb keys.
-A fzf bookmark opener script, works with Firefox and Amfora (gemini) or copy/paste.
+One to shut down and reboot.  
+One to mount and unmount Luks encrypted usb keys.  
+A fzf bookmark opener script, works with Firefox and Amfora (gemini) or copy/paste.  
 
 ## Have a good day, internet person.
