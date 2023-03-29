@@ -1,7 +1,9 @@
 #!/bin/sh
+touch="$(touch ~/.local/share/book/link && touch ~/.local/share/book/title)"
 text="$(read -p "Nom: " && echo "<$REPLY>" >> ~/.local/share/book/title)"
-input="$(xclip -o >> ~/.local/share/book/link )"
-link="$(cat ~/.local/share/book/link | sed -n '$p' && rm ~/.local/share/book/link)"
+clip="$(xclip -o)"
+newline="$(echo -e "$clip"  >> ~/.local/share/book/link)"
+link="$(cat ~/.local/share/book/link | sed -n '$p')"
 title="$(cat ~/.local/share/book/title | sed -n '$p' && rm ~/.local/share/book/title)"
 file="$HOME/.local/share/bookmark"
 list="Enregistrer\nSupprimer\nModifier le fichier"
@@ -12,8 +14,8 @@ case "$fzf" in
 			notify-send "Déjà enregistré"
 		else
 			echo -e "$title" >> "$file"
-sed -i 's,$, \'${link}',;'  "$file"
-			notify-send "Enregistré" "$link"
+sed -i -e '$a'$link''  "$file"
+notify-send "Enregistré" "$link"
 
 		fi
 		;;
