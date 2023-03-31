@@ -5,7 +5,7 @@
 Two fzf bookmarking scripts, one to save what's in the clipboard    
 and another one to open (Firefox & Amfora) or copy them.  
 
-###ROFI  
+### ROFI  
 Two to download, open, and save videos where you want (interactive)  
 (Uses mpv and yt-dlp, folder are easily changed)  
 One to shut down and reboot.  
