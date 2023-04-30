@@ -1,0 +1,16 @@
+#!/bin/sh
+
+list="Enregistrer\nTemporaire"
+temp="$HOME/stuff/vid/ytdl/temp.mp4"
+rm "$temp"
+yt-dlp --merge-output-format mp4 -o "$temp" -f "worst[height=720]" -S "filesize:100M" --write-auto-subs --write-subs "$1"
+choose=$(echo -e "$list" | rofi -dmenu -p "Que faire")
+case "$choose" in
+	"Enregistrer")
+		exec ~/.local/bin/rofi-yt2
+		;;
+	"Temporaire")
+		
+		nohup mpv --no-terminal --really-quiet "$temp" &
+		;;
+esac

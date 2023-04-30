@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# If you find that the USB is mounted then umount it and close it, open it and mount it if it isn't
+
+list="Fermer\nOuvrir"
+
+choose=$(echo -e "$list" | rofi -dmenu -p 'Gérer la clé usb')
+
+case "$choose" in
+	"Fermer")
+		$TERMINAL -t usb -e sudo umount ~/stuff/usb 
+		$TERMINAL -t usb -e sudo cryptsetup close /dev/mapper/usb
+		notify-send "La clé USB se ferme"
+	;;
+"Ouvrir")
+
+		$TERMINAL -t usb -e sudo cryptsetup open /dev/sdc1 usb 
+		$TERMINAL -t usb -e sudo mount /dev/mapper/usb ~/stuff/usb
+		notify-send "La clé USB s'ouvre"
+		;;
+esac

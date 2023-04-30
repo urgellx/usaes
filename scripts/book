@@ -1,0 +1,16 @@
+#!/bin/sh
+# Open the bookmark file and gives you options to open links
+
+arg=$(grep -v '^#' ~/.local/share/mark/bookmark |  fzf --prompt Favoris --reverse )
+
+if [[ $arg =~ "gemini://" ]]; then
+   amfora "$arg"
+fi
+if [[ $arg =~ "<" ]]; then
+	notify-send "Non cliquable"
+	exec book
+fi
+
+if [[ $arg =~ "https://" ]]; then
+   nohup firejail $BROWSER "$arg"
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+# A small rofi / dmenu script
+# Replace awesome with your WM
+    
+case "$(echo -e "Suspendre\nÉteindre\nRedémarrer" | rofi -dmenu\
+	-p 'Quitter' -l 10 \
+	"Status:" )" in
+	Suspendre) exec systemctl suspend && i3lock --greeter-text="Welcome back"  --bar-indicator --bar-color "#edb170" --color "#f2f4f4" --bar-direction "2" ;;
+        Éteindre) exec systemctl poweroff;;
+        Redémarrer) exec systemctl reboot;;
+
+esac
