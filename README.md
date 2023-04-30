@@ -11,4 +11,7 @@ Two to download, open, and save videos where you want (interactive)
 One to shut down and reboot.  
 One to mount and unmount Luks encrypted usb keys.
 
+### Making fun of CNED
+A little jab at a typo on one of their school tests.
+
 ## Have a good day, internet person.
