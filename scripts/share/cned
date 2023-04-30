@@ -1,0 +1,5 @@
+"Copier fichier A vers sous-dossier B avec le nom C" 
+cp A B/C
+cp A D/C
+mv A D/C
+mv A B/C

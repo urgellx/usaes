@@ -1,0 +1,19 @@
+#!/bin/sh
+# Open the bookmark file and gives you options to open links
+
+arg=$(grep -v '^#' ~/.local/share/cned |  fzf --prompt "coreutils version CNED" --reverse )
+
+if [[ $arg =~ "Copier" ]]; then
+   exec cned
+fi
+
+if [[ $arg =~ "A B/C" ]]; then
+   echo "Faux gros bêta"
+fi
+if [[ $arg =~ "cp A D/C" ]]; then
+	echo "Bonne réponse"
+fi
+
+if [[ $arg =~ "mv A D/C" ]]; then
+   echo "Presque champion"
+fi
