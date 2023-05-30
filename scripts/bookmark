@@ -2,7 +2,7 @@
 touch="$(touch ~/.local/share/mark/link && touch ~/.local/share/mark/title)"
 text="$(read  -p "Nom: " && echo "<$REPLY>" >> ~/.local/share/mark/title)"
 clip="$(xclip -o)"
-newline="$(echo "$clip"  >> ~/.local/share/mark/link)"
+newline="$(echo -e "$clip"  >> ~/.local/share/mark/link)"
 link="$(cat ~/.local/share/mark/link | sed -n '$p')"
 title="$(cat ~/.local/share/mark/title | sed -n '$p' && rm ~/.local/share/mark/title)"
 file="$HOME/.local/share/mark/bookmark"
