@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # If you find that the USB is mounted then umount it and close it, open it and mount it if it isn't
 

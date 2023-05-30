@@ -12,5 +12,5 @@ if [[ $arg =~ "<" ]]; then
 fi
 
 if [[ $arg =~ "https://" ]]; then
-   nohup firejail $BROWSER "$arg"
+   nohup firejail $BROWSER "$arg" > /dev/null
 fi

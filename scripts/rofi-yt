@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 list="Enregistrer\nTemporaire"
 temp="$HOME/stuff/vid/ytdl/temp.mp4"
@@ -11,6 +11,6 @@ case "$choose" in
 		;;
 	"Temporaire")
 		
-		nohup mpv --no-terminal --really-quiet "$temp" &
+		nohup mpv --no-terminal --really-quiet "$temp" > /dev/null & 
 		;;
 esac
