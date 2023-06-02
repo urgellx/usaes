@@ -1,20 +1,20 @@
-#!/bin/bash
-touch="$(touch ~/.local/share/mark/link && touch ~/.local/share/mark/title)"
-text="$(read  -p "Nom: " && echo "<$REPLY>" >> ~/.local/share/mark/title)"
+#!/bin/sh
+touch ~/.local/share/mark/link && touch ~/.local/share/mark/title
+read  -p "Nom: " && echo "<$REPLY>" >> ~/.local/share/mark/title
 clip="$(xclip -o)"
-newline="$(echo -e "$clip"  >> ~/.local/share/mark/link)"
+echo -e "$clip"  >> ~/.local/share/mark/link
 link="$(cat ~/.local/share/mark/link | sed -n '$p')"
 title="$(cat ~/.local/share/mark/title | sed -n '$p' && rm ~/.local/share/mark/title)"
 file="$HOME/.local/share/mark/bookmark"
-list="Enregistrer\nSupprimer\nModifier le fichier"
-fzf=$(echo -e "$list" | fzf --prompt Favoris --reverse)
+list="Enregistrer\\nSupprimer\\nModifier le fichier"
+fzf=$(printf  "$list" | fzf --prompt Favoris --reverse)
 case "$fzf" in
 	"Enregistrer")
 		if grep -q "$link" "$file"; then
 			notify-send "Déjà enregistré"
 		else
-			echo "$title" >> "$file"
-sed -i -e '$a'$link''  "$file"
+			echo "$title" "$link" >> "$file"
+# sed -i -e '$a'$link''  "$file"
 notify-send "Enregistré" "$link"
 
 		fi

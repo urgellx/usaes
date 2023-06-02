@@ -2,15 +2,13 @@
 # Open the bookmark file and gives you options to open links
 
 arg=$(grep -v '^#' ~/.local/share/mark/bookmark |  fzf --prompt Favoris --reverse )
+printf "%s\n" "$arg" | awk '{print $2}' > ~/.local/share/mark/link
+link=$(grep -v '^#' ~/.local/share/mark/link )
 
-if [[ $arg =~ "gemini://" ]]; then
-   amfora "$arg"
-fi
-if [[ $arg =~ "<" ]]; then
-	notify-send "Non cliquable"
-	exec book
-fi
 
-if [[ $arg =~ "https://" ]]; then
-   nohup firejail $BROWSER "$arg" > /dev/null
-fi
+
+case "$link" in
+  *https://*) nohup firejail "$BROWSER" "$link" > /dev/null ;;
+  *gemini://*) amfora "$link" ;;
+  *)         echo "Nothing to do" ;;
+esac
